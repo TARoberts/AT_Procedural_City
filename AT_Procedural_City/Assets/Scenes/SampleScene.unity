@@ -577,13 +577,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnables:
-  - {fileID: 5708646498765081471, guid: e875e61e7a4c2124985178b908eb5596, type: 3}
-  - {fileID: 5708646498765081471, guid: dfbc5f1b7f6106d419f558c303d14664, type: 3}
-  - {fileID: 5708646498765081471, guid: 17d96fbbf802cbf42a2cce4c292820f8, type: 3}
-  gridX: 3
-  gridY: 3
-  gridOffset: 5
-  gridOrigin: {x: 0, y: 1, z: 0}
+  - {fileID: 7803439227088190616, guid: 806e3fb785749ad44b3cf5b1e1cef15e, type: 3}
+  gridX: 30
+  gridY: 30
+  gridOffset: 3
+  gridOrigin: {x: 0, y: 0, z: 0}
 --- !u!4 &1476738155
 Transform:
   m_ObjectHideFlags: 0
