@@ -12,6 +12,37 @@ public class Builder : MonoBehaviour
     void Start()
     {
         Build();
+
+        int rotation = Random.Range(1, 4);
+
+        if (rotation != 0)
+        {
+            if (rotation == 1)
+            {
+                rotation = 0;
+            }
+
+            else if (rotation == 2)
+            {
+                rotation = 90;
+            }
+
+            else if (rotation == 3)
+            {
+                rotation = 180;
+            }
+
+            else if (rotation == 4)
+            {
+                rotation = 270;
+            }
+        }
+
+
+        Vector3 mid = 
+            new Vector3(this.gameObject.transform.position.x - .5f, this.gameObject.transform.position.y - 0.5f, this.gameObject.transform.position.z - 0.5f); 
+
+        this.gameObject.transform.RotateAround(mid, Vector3.up, rotation);
     }
 
     // Update is called once per frame
@@ -31,14 +62,20 @@ public class Builder : MonoBehaviour
 
     float SpawnLayer(GameObject[] blockArray, float inputHeight)
     {
+
+
         Transform randomTransform = blockArray[Random.Range(0, blockArray.Length)].transform;
         GameObject clone = Instantiate(randomTransform.gameObject, this.transform.position + new Vector3(0, inputHeight, 0), transform.rotation) as GameObject;
         Mesh cloneMesh = clone.GetComponentInChildren<MeshFilter>().mesh;
         Bounds baseBounds = cloneMesh.bounds;
         float heightOffset = baseBounds.size.y;
 
-        clone.transform.SetParent(this.transform);
+        //float floRot = rotation;
 
+       // clone.transform.Rotate(0f, floRot, 0f, Space.World);
+
+        clone.transform.SetParent(this.transform);
+        clone.transform.position = new Vector3(this.transform.position.x, clone.transform.position.y, this.transform.position.z);
         return heightOffset;
     }
 }

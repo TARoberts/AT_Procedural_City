@@ -1,19 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GridSpawner : MonoBehaviour
 {
+    public static GridSpawner instance = null;
 
     public GameObject[] spawnables;
     [SerializeField] int gridX, gridY;
-    [SerializeField] float gridOffset = 1f;
+    [SerializeField] float gridOffset;
     [SerializeField] Vector3 gridOrigin = Vector3.zero;
+    [SerializeField] RawImage perlin1, perlin2;
+    public bool spawnCity = false;
+    private bool citySpawned = false;
+
+
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        SpawnGrid();
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void SpawnGrid()
@@ -33,5 +47,15 @@ public class GridSpawner : MonoBehaviour
         int index = Random.Range(0, spawnables.Length);
 
         GameObject clone = Instantiate(spawnables[index], position, rotation);
+
+        clone.transform.SetParent(this.gameObject.transform);
+    }
+    private void Update()
+    {
+        if (spawnCity && !citySpawned)
+        {
+            citySpawned = !citySpawned;
+            SpawnGrid();
+        }
     }
 }

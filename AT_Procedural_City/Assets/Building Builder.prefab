@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7803439227088190618}
-  - component: {fileID: 7803439227088190617}
+  - component: {fileID: 2831489128694004844}
   m_Layer: 0
   m_Name: Building Builder
   m_TagString: Untagged
@@ -30,9 +30,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7803439227088190617
+--- !u!114 &2831489128694004844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,18 +41,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 7803439227088190616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6450917b17462d646974bf30c7787fc9, type: 3}
+  m_Script: {fileID: 11500000, guid: c36517278bd44c442acd1f0d9b5dfe02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minBlocks: 5
-  maxBlocks: 8
-  bases:
+  maxPieces: 20
+  perlinScaleFactor: 2
+  randomVariationMin: -5
+  randomVariationMax: 10
+  baseParts:
   - {fileID: 100002, guid: e97c85e09480a86459ba01b5654db311, type: 3}
   - {fileID: 100002, guid: a9d497b936cc31e44951e056ce36f4f6, type: 3}
   - {fileID: 100002, guid: 1a22f99ea3af33644aa9fbce29aebdff, type: 3}
-  middles:
+  - {fileID: 100002, guid: 5424f2ed196a3ff4b8212ed105842fa7, type: 3}
+  - {fileID: 100002, guid: aa3fcca3644c8fc43b9a60a9bd134836, type: 3}
+  middleParts:
   - {fileID: 100002, guid: 7589127dbd4dca54090aedc86ddf26bf, type: 3}
   - {fileID: 100002, guid: 20b552937e17133408d57952eb673b2a, type: 3}
   - {fileID: 100002, guid: f46be549002f3814f8e61ffd27d2389c, type: 3}
-  tops:
+  - {fileID: 100002, guid: 02c0afe3e5c66cc4cbf1ce7f0c538f7e, type: 3}
+  - {fileID: 100002, guid: f8836c03cffd5134699651967307452b, type: 3}
+  - {fileID: 100002, guid: 2f861fd79e2a64248a9a772bd4773f84, type: 3}
+  - {fileID: 100002, guid: f46be549002f3814f8e61ffd27d2389c, type: 3}
+  topParts:
   - {fileID: 100002, guid: 3675f0302959d1645a0e2f0a8a3af116, type: 3}
+  - {fileID: 100002, guid: 28b4b04df1bdf17428c4e192715ef50a, type: 3}
