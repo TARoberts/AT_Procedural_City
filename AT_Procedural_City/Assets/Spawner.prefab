@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4358686171406087643
+--- !u!1 &754438477388062019
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4358686171406087641}
-  - component: {fileID: 4358686171406087640}
+  - component: {fileID: 754438477388062017}
+  - component: {fileID: 754438477388062016}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -17,28 +17,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4358686171406087641
+--- !u!4 &754438477388062017
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4358686171406087643}
+  m_GameObject: {fileID: 754438477388062019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.819164, y: -8.406555, z: -106.29834}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4358686171406087640
+--- !u!114 &754438477388062016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4358686171406087643}
+  m_GameObject: {fileID: 754438477388062019}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80447d89845870b4495931b3fb26a845, type: 3}
@@ -46,7 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnables:
   - {fileID: 7803439227088190616, guid: 806e3fb785749ad44b3cf5b1e1cef15e, type: 3}
-  gridX: 3
-  gridY: 3
-  gridOffset: 3
-  gridOrigin: {x: 1, y: 0, z: 1}
+  gridX: 5
+  gridY: 5
+  gridOffset: 1
+  gridOrigin: {x: 0, y: 0, z: 0}
+  perlin1: {fileID: 0}
+  perlin2: {fileID: 0}
+  spawnCity: 1

@@ -10,7 +10,7 @@ public class GridSpawner : MonoBehaviour
     public GameObject[] spawnables;
     [SerializeField] int gridX, gridY;
     [SerializeField] float gridOffset;
-    [SerializeField] Vector3 gridOrigin = Vector3.zero;
+    [SerializeField] Vector3 gridOrigin;
     [SerializeField] RawImage perlin1, perlin2;
     public bool spawnCity = false;
     private bool citySpawned = false;
@@ -24,10 +24,14 @@ public class GridSpawner : MonoBehaviour
         {
             instance = this;
         }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
+
+        gridX = Random.Range(2, 7);
+        gridY = Random.Range(2, 7);
+        gridOrigin = this.transform.position;
+        //else if (instance != this)
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     void SpawnGrid()

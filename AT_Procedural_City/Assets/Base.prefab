@@ -129,6 +129,7 @@ MonoBehaviour:
   showTex1: {fileID: 5522246331717993622}
   showTex2: {fileID: 7755575203676234107}
   block: {fileID: 5708646498765081471, guid: dfbc5f1b7f6106d419f558c303d14664, type: 3}
+  noiseMap: {fileID: 0}
 --- !u!1 &6374997680665525361
 GameObject:
   m_ObjectHideFlags: 0
