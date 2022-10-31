@@ -14,6 +14,9 @@ public class CitySpawn : MonoBehaviour
 
     private void Awake()
     {
+
+
+
         if (gridX == 0)
         {
             gridX = Random.Range(2, 7);
@@ -23,21 +26,23 @@ public class CitySpawn : MonoBehaviour
         {
             gridY = Random.Range(2, 7);
         }
-        
 
-        if (gridX > gridY)
-        {
-            gridOffset = gridX*1.5f;
-        }
-        else if (gridX < gridY)
-        {
-            gridOffset = gridY*1.5f;
-        }
 
-        else
-        {
-            gridOffset = gridX * 1.5f;
-        }
+        //if (gridX > gridY)
+        //{
+        //    gridOffset = gridX*1.5f;
+        //}
+        //else if (gridX < gridY)
+        //{
+        //    gridOffset = gridY*1.5f;
+        //}
+
+        //else
+        //{
+        //    gridOffset = gridX * 1.5f;
+        //}
+
+        gridOffset = 10;
     }
 
     void SpawnGrid()

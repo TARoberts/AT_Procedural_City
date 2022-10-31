@@ -14,6 +14,8 @@ public class ComplexBuilder : MonoBehaviour
     public GameObject[] middleParts;
     public GameObject[] topParts;
 
+    private GameObject[] building;
+
     void Start()
     {
         Build();
@@ -42,11 +44,17 @@ public class ComplexBuilder : MonoBehaviour
             }
         }
 
-
         Vector3 mid =
-            new Vector3(this.gameObject.transform.position.x - .5f, this.gameObject.transform.position.y - 0.5f, this.gameObject.transform.position.z - 0.5f);
+    new Vector3(this.gameObject.transform.position.x - .5f, this.gameObject.transform.position.y - 0.5f, this.gameObject.transform.position.z - 0.5f);
 
         this.gameObject.transform.RotateAround(mid, Vector3.up, rotation);
+        this.gameObject.isStatic = true;
+        int kids = this.transform.childCount;
+
+        for (int i = 0; i < kids; i++)
+        {
+            this.transform.GetChild(i).gameObject.isStatic = true;
+        }
     }
 
 
@@ -79,6 +87,14 @@ public class ComplexBuilder : MonoBehaviour
         GameObject clone = Instantiate(randomTransform.gameObject, this.transform.position + new Vector3(0, inputHeight, 0), transform.rotation) as GameObject;
         Mesh cloneMesh = clone.GetComponentInChildren<MeshFilter>().mesh;
         Bounds baseBounds = cloneMesh.bounds;
+
+        if (inputHeight == 0)
+        {
+            clone.AddComponent<MeshCollider>();
+            clone.GetComponent<MeshCollider>().convex = true;
+            clone.GetComponent<MeshCollider>().sharedMesh = cloneMesh;
+        }
+
         float heightOffset = baseBounds.size.y;
 
         clone.transform.SetParent(this.transform);
