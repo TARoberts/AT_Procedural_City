@@ -8,12 +8,14 @@ public class GridSpawner : MonoBehaviour
     public static GridSpawner instance = null;
 
     public GameObject[] spawnables;
-    [SerializeField] int gridX, gridY;
+    [SerializeField] int gridX = 6, gridY = 6;
     [SerializeField] float gridOffset;
     [SerializeField] Vector3 gridOrigin;
+    
     [SerializeField] RawImage perlin1, perlin2;
     public bool spawnCity = false;
     private bool citySpawned = false;
+    public int gridPosX, gridPosY, gridXMax, gridYMax, midX, midY;
 
     public enum CityDistrict
     {
@@ -34,7 +36,35 @@ public class GridSpawner : MonoBehaviour
             instance = this;
         }
 
-        int index = Random.Range(0, 4);
+        gridPosX = GetComponentInParent<CitySpawn>().x;
+        gridPosY = GetComponentInParent<CitySpawn>().y;
+
+        gridXMax = GetComponentInParent<CitySpawn>().gridX - 1;
+        gridYMax = GetComponentInParent<CitySpawn>().gridY - 1;
+
+        midX = gridXMax / 2;
+        midY = gridYMax / 2;
+
+        int index = 0;
+
+        if (gridPosX == 0 || gridPosX == gridXMax || gridPosY == 0 || gridPosY == gridYMax)
+        {
+            index = 2;
+        }
+
+        else if (((gridPosX == midX - 1 || gridPosX == midX || gridPosX == midX + 1)) && ((gridPosY == midY - 1 || gridPosY == midY || gridPosY == midY + 1)))
+        {
+            index = 0;
+        }
+        else
+        {
+            index = Random.Range(1, 4);
+            while (index == 2)
+            {
+                index = Random.Range(1, 4);
+            }
+        }
+        
 
         switch (index)
         {
@@ -60,51 +90,51 @@ public class GridSpawner : MonoBehaviour
         }
 
 
-        SetUpParameters();
+        gridOffset = 1;
         //gridX = Random.Range(2, 7);
         //gridY = Random.Range(2, 7);
         gridOrigin = this.transform.position;
 
     }
 
-    void SetUpParameters()
-    {
-        switch (district)
-        {
-            case CityDistrict.Center:
-                gridX = Random.Range(7, 8);
-                gridY = Random.Range(7, 8);
-                gridOffset = 1;
-                break;
-            case CityDistrict.Offices:
+    //void SetUpParameters()
+    //{
+    //    switch (district)
+    //    {
+    //        case CityDistrict.Center:
+    //            //gridX = Random.Range(7, 8);
+    //            //gridY = Random.Range(7, 8);
+    //            gridOffset = 1;
+    //            break;
+    //        case CityDistrict.Offices:
 
-                gridX = Random.Range(4, 5);
-                gridY = Random.Range(4, 5);
-                gridOffset = 1.2f;
-                break;
+    //            //gridX = Random.Range(4, 5);
+    //            //gridY = Random.Range(4, 5);
+    //            gridOffset = 1.1f;
+    //            break;
 
-            case CityDistrict.Suburbs:
+    //        case CityDistrict.Suburbs:
 
-                gridX = Random.Range(5, 12);
-                gridY = Random.Range(2, 2);
-                gridOffset = 1;
-                break;
+    //            //gridX = Random.Range(5, 12);
+    //            //gridY = Random.Range(2, 2);
+    //            gridOffset = 1;
+    //            break;
 
-            case CityDistrict.Entertainment:
+    //        case CityDistrict.Entertainment:
 
-                gridX = Random.Range(4, 4);
-                gridY = Random.Range(4, 4);
-                gridOffset = 2;
-                break;
+    //            //gridX = Random.Range(4, 4);
+    //            //gridY = Random.Range(4, 4);
+    //            gridOffset = 1;
+    //            break;
 
-            case CityDistrict.Flats:
+    //        case CityDistrict.Flats:
 
-                gridX = Random.Range(1, 5);
-                gridY = Random.Range(1, 12);
-                gridOffset = 1;
-                break;
-        }
-    }
+    //            //gridX = Random.Range(1, 5);
+    //            //gridY = Random.Range(1, 12);
+    //            gridOffset = 1;
+    //            break;
+    //    }
+    //}
     void SpawnGrid()
     {
         for (int x = 0; x < gridX; x++)

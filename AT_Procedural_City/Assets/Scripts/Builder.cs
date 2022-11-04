@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Builder : MonoBehaviour
 {
-    public int minBlocks = 3, maxBlocks = 8;
+    public int minBlocks, maxBlocks;
 
     public GameObject[] bases, middles, tops;
     public GridSpawner.CityDistrict district;
@@ -65,13 +65,13 @@ public class Builder : MonoBehaviour
         {
             case GridSpawner.CityDistrict.Center:
 
-                minBlocks = 7;
-                maxBlocks = 15;
+                minBlocks = 18;
+                maxBlocks = 25;
                 break;
             case GridSpawner.CityDistrict.Offices:
 
                 minBlocks = 10;
-                maxBlocks = 13;
+                maxBlocks = 17;
                 break;
 
             case GridSpawner.CityDistrict.Suburbs:
@@ -82,14 +82,14 @@ public class Builder : MonoBehaviour
 
             case GridSpawner.CityDistrict.Entertainment:
 
-                minBlocks = 3;
-                maxBlocks = 6;
+                minBlocks = 5;
+                maxBlocks = 10;
                 break;
 
             case GridSpawner.CityDistrict.Flats:
 
-                minBlocks = 5;
-                maxBlocks = 15;
+                minBlocks = 8;
+                maxBlocks = 13;
                 break;
         }
     }
