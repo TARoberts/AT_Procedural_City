@@ -57,7 +57,7 @@ public class CitySpawn : MonoBehaviour
             }
         }
 
-        Instantiate(roads, this.transform.position, this.transform.rotation);
+        Instantiate(roads, this.transform.position, this.transform.rotation.normalized);
 
     }
 
